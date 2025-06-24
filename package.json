@@ -1,0 +1,20 @@
+{
+  "name": "comic-site",
+  "version": "1.0.0",
+  "description": "漫画网站 - Cloudflare Pages版",
+  "scripts": {
+    "build": "echo 'Build completed' && exit 0",
+    "deploy:worker": "wrangler publish functions/api-proxy.js --name comic-api-proxy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "comic",
+    "cloudflare",
+    "manga"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^2.0.0"
+  }
+}
