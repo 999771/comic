@@ -1,0 +1,253 @@
+/* 基础样式 */
+:root {
+  --primary-color: #4a6baf;
+  --secondary-color: #f8f9fa;
+  --text-color: #333;
+  --light-text: #777;
+  --border-color: #e1e1e1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f5f7fa;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 头部样式 */
+.app-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.search-container {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#search-input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+#search-btn {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 主要内容区 */
+.app-main {
+  flex: 1;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: var(--light-text);
+}
+
+.no-result {
+  text-align: center;
+  padding: 2rem;
+  color: var(--light-text);
+  grid-column: 1 / -1;
+}
+
+/* 漫画列表 */
+.comic-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.comic-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.comic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comic-cover {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #f0f0f0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="140" viewBox="0 0 100 140"><rect width="100" height="140" fill="%23eeeeee"/><text x="50%" y="50%" font-family="Arial" font-size="12" fill="%23999" text-anchor="middle">Cover Image</text></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+.comic-info {
+  padding: 0.8rem;
+}
+
+.comic-title {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comic-author {
+  font-size: 0.8rem;
+  color: var(--light-text);
+}
+
+/* 详情页样式 */
+.comic-detail {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  color: var(--primary-color);
+}
+
+.detail-content {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.detail-cover {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: #f0f0f0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="210" viewBox="0 0 150 210"><rect width="150" height="210" fill="%23eeeeee"/><text x="50%" y="50%" font-family="Arial" font-size="14" fill="%23999" text-anchor="middle">Cover Image</text></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.detail-meta {
+  flex: 1;
+}
+
+.detail-meta p {
+  margin-bottom: 1rem;
+}
+
+/* 章节列表 */
+.chapter-container {
+  margin-top: 2rem;
+}
+
+.chapter-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.chapter-item {
+  background: var(--secondary-color);
+  padding: 0.8rem;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chapter-item:hover {
+  background: #e9ecef;
+}
+
+/* 页脚 */
+.app-footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .search-container {
+    margin-left: 0;
+  }
+  
+  .comic-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .detail-content {
+    flex-direction: column;
+  }
+  
+  .detail-cover {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+  }
+}
