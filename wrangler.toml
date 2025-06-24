@@ -1,0 +1,9 @@
+name = "comic-api-proxy"
+compatibility_date = "2023-08-16"
+
+[build]
+command = "echo 'No build needed'"
+
+[[routes]]
+pattern = "/api/*"
+script = "api-proxy"
