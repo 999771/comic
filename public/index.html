@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>漫蛙漫画 - Cloudflare版</title>
+  <link rel="stylesheet" href="./src/style.css">
+  <link rel="icon" href="./assets/logo.png">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <img src="./assets/logo.png" alt="Logo" class="logo">
+      <h1>漫蛙漫画</h1>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="输入漫画名称...">
+        <button id="search-btn">搜索</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <div id="loading" class="loading">加载中...</div>
+      <div id="comic-list" class="comic-list"></div>
+      <div id="comic-detail" class="comic-detail" style="display:none;">
+        <div class="detail-header">
+          <button id="back-btn" class="back-btn">← 返回</button>
+          <h2 id="detail-title"></h2>
+        </div>
+        <div class="detail-content">
+          <img id="detail-cover" class="detail-cover" src="" alt="封面">
+          <div class="detail-meta">
+            <p><strong>作者：</strong><span id="detail-author"></span></p>
+            <p><strong>分类：</strong><span id="detail-category"></span></p>
+            <p><strong>简介：</strong><span id="detail-desc"></span></p>
+          </div>
+        </div>
+        <div class="chapter-container">
+          <h3>章节列表</h3>
+          <div id="chapter-list" class="chapter-list"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>© 2023 漫蛙漫画 - 部署在Cloudflare Pages</p>
+    </footer>
+  </div>
+
+  <script>
+    function handleImageError(imgElement) {
+      imgElement.onerror = null;
+      imgElement.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjgwIiB2aWV3Qm94PSIwIDAgMjAwIDI4MCI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyODAiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Db3ZlciBJbWFnZTwvdGV4dD48L3N2Zz4=';
+      imgElement.style.backgroundColor = '#f5f5f5';
+    }
+  </script>
+  <script src="./src/app.js"></script>
+</body>
+</html>
